@@ -1,0 +1,363 @@
+<mxfile host="app.diagrams.net" modified="2026-06-14" agent="Claude" version="21.6.5" type="device">
+  <diagram id="jr-assessment-arch" name="jr-assessment Architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1300" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ================================================================ -->
+        <!-- DEVELOPER MACHINE                                                 -->
+        <!-- ================================================================ -->
+        <mxCell id="2" value="Developer Machine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;verticalAlign=top;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="20" y="450" width="180" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="🔑 ~/.ssh/id_rsa(.pub)" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="32" y="490" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="🔧 AWS CLI v2" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="32" y="518" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="🌍 Terraform ≥ 1.6" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="32" y="546" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="terraform apply" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7B68EE;strokeColor=#5A4DB5;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="585" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="git push" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#24292e;strokeColor=#000;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="625" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="ssh ec2-user@&lt;ip&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e1e1e;strokeColor=#000;fontColor=#00ff00;fontSize=9;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="35" y="665" width="140" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="curl http://&lt;ip&gt;/" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1e1e1e;strokeColor=#000;fontColor=#00ff00;fontSize=9;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="35" y="698" width="140" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- GITHUB                                                            -->
+        <!-- ================================================================ -->
+        <mxCell id="10" value="GitHub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#24292e;strokeColor=#000;fontColor=#ffffff;fontSize=14;fontStyle=1;verticalAlign=top;arcSize=3;" vertex="1" parent="1">
+          <mxGeometry x="20" y="60" width="280" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="📁 jr-assessment (main branch)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f6f8fa;strokeColor=#ccc;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="105" width="250" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="iac/&#xa;  main.tf (root — calls modules)&#xa;  variables.tf | outputs.tf&#xa;  terraform.tfvars.example&#xa;  modules/networking/&#xa;  modules/security/&#xa;  modules/compute/&#xa;  modules/storage/" style="text;html=1;align=left;verticalAlign=top;fontSize=9;fontFamily=Courier New;fillColor=#f6f8fa;strokeColor=#ccc;whiteSpace=pre;" vertex="1" parent="1">
+          <mxGeometry x="35" y="150" width="250" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="scripts/  ebs/  s3/  troubleshooting/  README.md" style="text;html=1;align=left;fontSize=9;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="35" y="298" width="250" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="🔁 .github/workflows/ (GitHub Actions)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2ea44f;strokeColor=#178737;fontColor=#fff;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="35" y="335" width="250" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- AWS CLOUD BOUNDARY                                                -->
+        <!-- ================================================================ -->
+        <mxCell id="20" value="AWS Cloud — af-south-1 (Cape Town)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF9900;strokeWidth=3;fontSize=14;fontStyle=1;verticalAlign=top;arcSize=2;" vertex="1" parent="1">
+          <mxGeometry x="330" y="40" width="1430" height="1230" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- NETWORKING MODULE                                                 -->
+        <!-- ================================================================ -->
+        <mxCell id="30" value="🌐 Networking Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;verticalAlign=top;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="355" y="80" width="620" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="Default VPC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="120" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="Subnet af-south-1a" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5fe;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="550" y="110" width="155" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="33" value="Subnet af-south-1b" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1f5fe;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="550" y="150" width="155" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="34" value="🌐 Internet Gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#FF9900;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="720" y="120" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="35" value="outputs: vpc_id · subnet_ids · availability_zones" style="text;html=1;align=left;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="370" y="232" width="360" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- SECURITY MODULE                                                   -->
+        <!-- ================================================================ -->
+        <mxCell id="40" value="🔒 Security Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;verticalAlign=top;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="355" y="300" width="620" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="41" value="Security Group: jr-assessment-web-sg" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="340" width="320" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="43" value="✅ INBOUND  SSH :22 → &lt;my-ip&gt;/32 only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="385" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="44" value="✅ INBOUND  HTTP :80 → 0.0.0.0/0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="415" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="45" value="✅ OUTBOUND ALL → 0.0.0.0/0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="370" y="445" width="310" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="46" value="🔑 Key Pair: jr-assessment-key&#xa;source: ~/.ssh/id_rsa.pub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="700" y="340" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="47" value="outputs: security_group_id · key_name" style="text;html=1;align=left;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="370" y="478" width="280" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- COMPUTE MODULE                                                    -->
+        <!-- ================================================================ -->
+        <mxCell id="50" value="💻 Compute Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;verticalAlign=top;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="355" y="540" width="920" height="700" as="geometry" />
+        </mxCell>
+
+        <!-- Launch Template -->
+        <mxCell id="51" value="Launch Template: jr-assessment-lt   |   AMI: Amazon Linux 2023 (al2023-ami-*x86_64*)   |   Type: t3.micro   |   Root: 10 GiB gp3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="585" width="880" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- EC2 Instance box -->
+        <mxCell id="52" value="EC2 Instance: jr-assessment-web" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0fff0;strokeColor=#4CAF50;fontSize=12;fontStyle=1;verticalAlign=top;arcSize=3;" vertex="1" parent="1">
+          <mxGeometry x="370" y="648" width="870" height="572" as="geometry" />
+        </mxCell>
+
+        <!-- Apache httpd -->
+        <mxCell id="53" value="🌐 Apache httpd&#xa;Port :80&#xa;/var/www/html/index.html&#xa;hostname + instance-id" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#FF9900;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="385" y="690" width="190" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- user_data.sh -->
+        <mxCell id="54" value="📜 user_data.sh&#xa;— runs on instance boot —&#xa;&#xa;set -euxo pipefail&#xa;yum update -y&#xa;yum install -y httpd jq&#xa;systemctl enable --now httpd&#xa;IMDSv2 token fetch&#xa;Write index.html with&#xa;hostname + instance-id" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8d5ff;strokeColor=#9c27b0;fontSize=9;align=left;verticalAlign=top;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="595" y="690" width="190" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- setup_web.sh -->
+        <mxCell id="55" value="📜 setup_web.sh&#xa;— idempotent, run manually —&#xa;&#xa;set -euo pipefail&#xa;exec &gt; tee setup_web.log&#xa;rpm -q httpd || yum install&#xa;systemctl enable --now httpd&#xa;Writes 'Ola World' index.html&#xa;Exits non-zero on failure" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8d5ff;strokeColor=#9c27b0;fontSize=9;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="385" y="820" width="190" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- rotate_logs.sh -->
+        <mxCell id="56" value="📜 rotate_logs.sh&#xa;— triggered by cron —&#xa;&#xa;set -euo pipefail&#xa;Checks size ≥ 5 MB&#xa;mv + gzip → archive.gz&#xa;Keep 5 archives only&#xa;Prune older .gz files&#xa;Logs to rotate_logs.log" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8d5ff;strokeColor=#9c27b0;fontSize=9;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="595" y="900" width="190" height="180" as="geometry" />
+        </mxCell>
+
+        <!-- Crontab -->
+        <mxCell id="57" value="⏰ crontab&#xa;15 2 * * *&#xa;rotate_logs.sh&#xa;daily at 02:15" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff9c4;strokeColor=#f9a825;fontSize=9;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="595" y="1105" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Root EBS -->
+        <mxCell id="58" value="💾 Root EBS&#xa;/dev/xvda&#xa;10 GiB · gp3&#xa;delete on terminate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#FF9900;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="810" y="690" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Data EBS -->
+        <mxCell id="59" value="💾 Data EBS&#xa;/dev/xvdf → /data&#xa;4 GiB → 8 GiB · gp3&#xa;mkfs.xfs + mount&#xa;UUID in /etc/fstab (nofail)&#xa;xfs_growfs online resize" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff8e1;strokeColor=#FF9900;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="810" y="800" width="180" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Outputs -->
+        <mxCell id="60" value="outputs: instance_id · public_ip · launch_template_id · ebs_volume_id · ssh_command" style="text;html=1;align=left;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1215" width="600" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- STORAGE MODULE                                                    -->
+        <!-- ================================================================ -->
+        <mxCell id="70" value="🗄️ Storage Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;verticalAlign=top;arcSize=5;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="80" width="420" height="910" as="geometry" />
+        </mxCell>
+
+        <!-- S3 Bucket -->
+        <mxCell id="71" value="S3 Bucket: jr-website-craig-7842" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1325" y="125" width="390" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Static Website Hosting -->
+        <mxCell id="72" value="Static Website Hosting&#xa;IndexDocument: index.html&#xa;ErrorDocument: error.html" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1325" y="190" width="390" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Block Public Access -->
+        <mxCell id="73" value="⚠️ Block Public Access&#xa;BlockPublicAcls: false&#xa;BlockPublicPolicy: false&#xa;IgnorePublicAcls: false&#xa;RestrictPublicBuckets: false&#xa;(disabled for demo website)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#e91e63;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1325" y="280" width="390" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Bucket Policy -->
+        <mxCell id="74" value="Bucket Policy (least privilege)&#xa;Effect: Allow | Principal: *&#xa;Action: s3:GetObject&#xa;Resource: arn:aws:s3:::jr-website-craig-7842/*" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1325" y="410" width="390" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- index.html -->
+        <mxCell id="75" value="📄 index.html&#xa;&lt;h1&gt;Hello World from S3&lt;/h1&gt;&#xa;Bucket + Region" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#4CAF50;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1325" y="520" width="185" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- error.html -->
+        <mxCell id="76" value="📄 error.html&#xa;404 - Not Found" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#e91e63;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1525" y="520" width="185" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Website Endpoint -->
+        <mxCell id="77" value="🌐 S3 Website Endpoint&#xa;http://jr-website-craig-7842&#xa;.s3-website.af-south-1.amazonaws.com" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#1976d2;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1325" y="610" width="390" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Production hardening note -->
+        <mxCell id="78" value="🔐 Production hardening:&#xa;CloudFront + Origin Access Control (OAC)&#xa;Re-enable Block Public Access fully&#xa;Attach AWS WAF to CloudFront" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8eaf6;strokeColor=#3f51b5;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="1325" y="700" width="390" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Storage outputs -->
+        <mxCell id="79" value="outputs: bucket_name · bucket_arn · website_endpoint" style="text;html=1;align=left;fontSize=9;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="1325" y="800" width="390" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- INTERNET / USERS                                                  -->
+        <!-- ================================================================ -->
+        <mxCell id="90" value="🌍 Internet&#xa;/ Users" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1770" y="550" width="130" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- LEGEND                                                            -->
+        <!-- ================================================================ -->
+        <mxCell id="95" value="Legend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666;fontSize=11;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="20" y="760" width="260" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="96" value="🔵 Networking Module" style="text;html=1;align=left;fontSize=10;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="800" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="97" value="🟠 Security Module" style="text;html=1;align=left;fontSize=10;fillColor=#ffe6cc;strokeColor=#d6b656;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="833" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="98" value="🟢 Compute Module" style="text;html=1;align=left;fontSize=10;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="866" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="99" value="🟡 Storage Module" style="text;html=1;align=left;fontSize=10;fillColor=#fff2cc;strokeColor=#d6b656;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="899" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="991" value="🟣 Bash Scripts" style="text;html=1;align=left;fontSize=10;fillColor=#e8d5ff;strokeColor=#9c27b0;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="932" width="200" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="992" value="💛 EBS Volumes" style="text;html=1;align=left;fontSize=10;fillColor=#fff8e1;strokeColor=#FF9900;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="965" width="200" height="25" as="geometry" />
+        </mxCell>
+
+        <!-- ================================================================ -->
+        <!-- ARROWS                                                            -->
+        <!-- ================================================================ -->
+
+        <!-- git push: Developer → GitHub -->
+        <mxCell id="100" value="git push" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;strokeColor=#24292e;strokeWidth=2;fontStyle=1;fontSize=9;" edge="1" source="7" target="10" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- terraform apply: Developer → AWS Cloud -->
+        <mxCell id="102" value="terraform apply" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#7B68EE;strokeWidth=2;dashed=1;fontStyle=1;fontSize=9;" edge="1" source="6" target="20" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="105" y="600" />
+              <mxPoint x="105" y="560" />
+              <mxPoint x="330" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- SSH: Developer → EC2 -->
+        <mxCell id="104" value="SSH :22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#333333;strokeWidth=1.5;dashed=1;fontSize=9;" edge="1" source="8" target="52" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="105" y="677" />
+              <mxPoint x="105" y="900" />
+              <mxPoint x="370" y="900" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Networking → Security (vpc_id) -->
+        <mxCell id="106" value="vpc_id" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c8ebf;strokeWidth=1.5;fontSize=9;" edge="1" source="30" target="40" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Security → Compute (sg_id, key_name) -->
+        <mxCell id="108" value="security_group_id&#xa;key_name" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#d6b656;strokeWidth=1.5;fontSize=9;" edge="1" source="40" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Networking → Compute (subnet_id) via side -->
+        <mxCell id="110" value="subnet_id" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;fontSize=9;exitX=1;exitY=0.5;entryX=0;entryY=0.1;" edge="1" source="30" target="50" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="990" y="175" />
+              <mxPoint x="1000" y="175" />
+              <mxPoint x="1000" y="610" />
+              <mxPoint x="355" y="610" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Launch Template → EC2 Instance (creates) -->
+        <mxCell id="112" value="creates" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4CAF50;strokeWidth=2;fontStyle=1;fontSize=9;" edge="1" source="51" target="52" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- user_data.sh → Apache (installs) -->
+        <mxCell id="114" value="installs &amp; starts" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9c27b0;strokeWidth=1.5;dashed=1;fontSize=9;" edge="1" source="54" target="53" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- setup_web.sh → Apache (also manages) -->
+        <mxCell id="116" value="manages" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#9c27b0;strokeWidth=1.5;dashed=1;fontSize=9;" edge="1" source="55" target="53" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="930" />
+              <mxPoint x="480" y="740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- cron → rotate_logs.sh -->
+        <mxCell id="118" value="triggers daily 02:15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#f9a825;strokeWidth=1.5;dashed=1;fontSize=9;" edge="1" source="57" target="56" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Internet → Security Group HTTP -->
+        <mxCell id="120" value="HTTP :80" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4CAF50;strokeWidth=2;fontStyle=1;fontSize=9;" edge="1" source="90" target="44" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1835" y="430" />
+              <mxPoint x="1835" y="427" />
+              <mxPoint x="680" y="427" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Internet → S3 Website -->
+        <mxCell id="122" value="HTTP website" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1976d2;strokeWidth=2;fontStyle=1;fontSize=9;" edge="1" source="90" target="77" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1835" y="595" />
+              <mxPoint x="1835" y="645" />
+              <mxPoint x="1715" y="645" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- EC2 → Root EBS -->
+        <mxCell id="124" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF9900;strokeWidth=1.5;" edge="1" source="52" target="58" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- EC2 → Data EBS -->
+        <mxCell id="126" value="/dev/xvdf" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#FF9900;strokeWidth=1.5;fontSize=9;" edge="1" source="52" target="59" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

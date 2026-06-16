@@ -1,0 +1,5 @@
+# Crontab entry for log rotation
+# Install with: sudo crontab -e
+# Or: echo "15 2 * * * /usr/local/bin/rotate_logs.sh >> /var/log/rotate_logs.log 2>&1" | sudo crontab -
+
+15 2 * * * /usr/local/bin/rotate_logs.sh >> /var/log/rotate_logs.log 2>&1
