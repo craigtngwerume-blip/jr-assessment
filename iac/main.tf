@@ -6,7 +6,16 @@ terraform {
       version = "~> 5.0"
     }
   }
+
+  backend "s3" {
+    bucket  = "terraform-state-craign-2026"
+    key     = "ec2/terraform.tfstate"
+    region  = "af-south-1"
+    encrypt = true
+  }
 }
+
+
 
 provider "aws" {
   region = var.region
