@@ -8,7 +8,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket  = "terraform-state-craign-2026"
+    bucket  = "terraform-state-craign-2026-296274010522-af-south-1-an"
     key     = "ec2/terraform.tfstate"
     region  = "af-south-1"
     encrypt = true
