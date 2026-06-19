@@ -41,7 +41,7 @@ resource "aws_security_group" "web" {
 
 resource "aws_key_pair" "main" {
   key_name   = "${var.name}-key"
-  public_key = file("~/.ssh/id_rsa.pub")
+  public_key = var.ec2_public_key #file("~/.ssh/id_rsa.pub")
 
   tags = {
     Name    = "${var.name}-key"
