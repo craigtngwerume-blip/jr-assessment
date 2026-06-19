@@ -37,7 +37,11 @@ jobs:
       - name: Terraform Plan
         working-directory: iac
         run: terraform plan
-
+      
       - name: Terraform Apply
         working-directory: iac
-        run: terraform apply -auto-approve
+        env:
+          TF_VAR_ec2_public_key: ${{ secrets.EC2_PUBLIC_KEY }}
+        run: |
+          terraform init
+          terraform apply -auto-approve

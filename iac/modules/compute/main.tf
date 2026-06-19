@@ -64,9 +64,14 @@ resource "aws_launch_template" "web" {
   }
 }
 
+resource "aws_key_pair" "main" {
+  key_name   = "github-actions-key"
+  public_key = var.ec2_public_key
+}
+
 resource "aws_instance" "web" {
   subnet_id = var.subnet_id
-
+  key_name  = aws_key_pair.main.key_name
   launch_template {
     id      = aws_launch_template.web.id
     version = "$Latest"

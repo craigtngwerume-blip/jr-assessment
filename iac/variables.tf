@@ -38,3 +38,9 @@ variable "bucket_name" {
   type        = string
   default     = "jr-website-craig-7842"
 }
+
+variable "ec2_public_key" {
+  description = "SSH public key for EC2"
+  type        = string
+  sensitive   = true
+}

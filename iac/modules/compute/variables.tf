@@ -34,3 +34,9 @@ variable "subnet_id" {
   description = "Subnet ID to launch the instance in"
   type        = string
 }
+
+variable "ec2_public_key" {
+  description = "SSH public key for EC2"
+  type        = string
+  sensitive   = true
+}
