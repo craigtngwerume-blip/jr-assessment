@@ -3,7 +3,7 @@
 # The Launch Template is reusable — the same config can launch additional
 # instances via Console, CLI, or Auto Scaling Group.
 
-data "aws_ami" "al2023" {
+/*data "aws_ami" "al2023" {
   owners      = ["137112412989"] # Amazon official account
   most_recent = true
 
@@ -17,10 +17,16 @@ data "aws_ami" "al2023" {
     values = ["hvm"]
   }
 }
+*/
+data "aws_ssm_parameter" "al2023" {
+  name = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
+}
+
+
 
 resource "aws_launch_template" "web" {
   name          = "jr-assessment-lt"
-  image_id      = data.aws_ami.al2023.id
+  image_id      = data.aws_ssm_parameter.al2023.value
   instance_type = var.instance_type
   key_name      = var.key_name
   user_data     = filebase64("${path.module}/user_data.sh")
