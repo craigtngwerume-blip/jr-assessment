@@ -14,6 +14,7 @@ variable "vpc_id" {
 }
 
 variable "my_ip" {
+  default     = "172.24.192.1/32"
   description = "Your public IP for SSH access (e.g. 1.2.3.4/32)"
   type        = string
 }
