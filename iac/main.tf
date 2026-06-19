@@ -44,6 +44,7 @@ module "compute" {
   root_volume_size  = var.root_volume_size
   security_group_id = module.security.security_group_id
   key_name          = module.security.key_name
+  ec2_public_key    = var.ec2_public_key
   subnet_id         = module.networking.first_subnet_id
 }
 
