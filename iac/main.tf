@@ -28,11 +28,12 @@ module "networking" {
 
 # ── Security ──────────────────────────────────────────────────────────────────
 module "security" {
-  source = "./modules/security"
-  name   = var.name
-  owner  = var.owner
-  vpc_id = module.networking.vpc_id
-  my_ip  = var.my_ip
+  source         = "./modules/security"
+  name           = var.name
+  owner          = var.owner
+  vpc_id         = module.networking.vpc_id
+  my_ip          = var.my_ip
+  ec2_public_key = var.ec2_public_key
 }
 
 # ── Compute ───────────────────────────────────────────────────────────────────
