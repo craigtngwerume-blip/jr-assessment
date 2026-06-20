@@ -30,13 +30,23 @@ variable "key_name" {
   type        = string
 }
 
-variable "subnet_id" {
+/*variable "subnet_id" {
   description = "Subnet ID to launch the instance in"
   type        = string
 }
-
+*/
 variable "ec2_public_key" {
   description = "SSH public key for EC2"
   type        = string
   sensitive   = true
 }
+
+variable "public_subnet_id" {
+  description = "Public subnet for EC2 instances"
+  type        = string
+}
+
+/*variable "private_subnet_id" {
+  type = string
+}
+*/

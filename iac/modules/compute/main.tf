@@ -18,15 +18,15 @@
   }
 }
 */
-data "aws_ssm_parameter" "al2023" {
+/*data "aws_ssm_parameter" "al2023" {
   name = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64"
 }
-
+*/
 
 
 resource "aws_launch_template" "web" {
   name          = "jr-assessment-lt"
-  image_id      = data.aws_ssm_parameter.al2023.value
+  image_id      = "ami-006b300825259765d"
   instance_type = var.instance_type
   key_name      = var.key_name
   user_data     = filebase64("${path.module}/user_data.sh")
@@ -76,7 +76,7 @@ resource "aws_key_pair" "main" {
 }
 
 resource "aws_instance" "web" {
-  subnet_id = var.subnet_id
+  subnet_id = var.public_subnet_id
   key_name  = aws_key_pair.main.key_name
   launch_template {
     id      = aws_launch_template.web.id
