@@ -3,7 +3,7 @@
 # Block Public Access is disabled only to allow the public bucket policy —
 # acceptable for a static demo site with no sensitive data.
 # In production: use CloudFront + OAC and keep BPA fully enabled.
-
+/*
 resource "aws_s3_bucket" "website" {
   bucket        = var.bucket_name
   force_destroy = true
@@ -86,3 +86,4 @@ resource "aws_s3_object" "error" {
     </html>
   HTML
 }
+*/
