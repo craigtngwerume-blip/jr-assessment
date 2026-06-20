@@ -26,7 +26,7 @@
 
 resource "aws_launch_template" "web" {
   name          = "jr-assessment-lt"
-  image_id      = "ami-006b300825259765d"
+  image_id      = "ami-0fd700d27aa4b509d"
   instance_type = var.instance_type
   key_name      = var.key_name
   user_data     = filebase64("${path.module}/user_data.sh")

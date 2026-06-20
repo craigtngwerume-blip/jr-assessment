@@ -50,10 +50,11 @@ module "compute" {
 }
 
 # ── Storage ───────────────────────────────────────────────────────────────────
-module "storage" {
+/*module "storage" {
   source      = "./modules/storage"
   name        = var.name
   owner       = var.owner
   bucket_name = var.bucket_name
   region      = var.region
 }
+*/
