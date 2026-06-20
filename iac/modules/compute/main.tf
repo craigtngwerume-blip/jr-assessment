@@ -32,6 +32,7 @@ resource "aws_launch_template" "web" {
   user_data     = filebase64("${path.module}/user_data.sh")
 
   network_interfaces {
+    subnet_id                   = var.public_subnet_id
     associate_public_ip_address = true
     security_groups             = [var.security_group_id]
   }
@@ -76,8 +77,8 @@ resource "aws_key_pair" "main" {
 }
 
 resource "aws_instance" "web" {
-  subnet_id = var.public_subnet_id
-  key_name  = aws_key_pair.main.key_name
+
+  key_name = aws_key_pair.main.key_name
   launch_template {
     id      = aws_launch_template.web.id
     version = "$Latest"
