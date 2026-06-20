@@ -18,7 +18,7 @@ output "ebs_volume_id" {
   value       = module.compute.ebs_volume_id
 }
 
-output "s3_website_endpoint" {
+/*output "s3_website_endpoint" {
   description = "S3 static website URL"
   value       = module.storage.website_endpoint
 }
@@ -27,7 +27,7 @@ output "s3_bucket_name" {
   description = "S3 bucket name"
   value       = module.storage.bucket_name
 }
-
+*/
 output "security_group_id" {
   description = "Web security group ID"
   value       = module.security.security_group_id
