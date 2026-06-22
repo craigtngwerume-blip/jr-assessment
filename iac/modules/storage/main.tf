@@ -41,7 +41,6 @@ resource "aws_s3_bucket_policy" "website" {
 
   depends_on = [
     aws_s3_bucket_public_access_block.website,
-    aws_s3_account_public_access_block.website,
   ]
 
   policy = jsonencode({

@@ -56,5 +56,12 @@ module "storage" {
   owner       = var.owner
   bucket_name = var.bucket_name
   region      = var.region
+  depends_on  = [aws_s3_account_public_access_block.main]
 }
 
+resource "aws_s3_account_public_access_block" "main" {
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
