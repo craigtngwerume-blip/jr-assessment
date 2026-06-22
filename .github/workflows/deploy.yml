@@ -40,18 +40,18 @@ jobs:
           TF_VAR_ec2_public_key: ${{ secrets.EC2_PUBLIC_KEY }}
         run: terraform plan
       
-      #- name: Terraform Apply
-       # working-directory: iac
-        #env:
-         # TF_VAR_ec2_public_key: ${{ secrets.EC2_PUBLIC_KEY }}
-       # run: |
-        #  terraform init
-         # terraform apply -auto-approve
-        
-      - name: Terraform Destroy
+      - name: Terraform Apply
         working-directory: iac
         env:
-          TF_VAR_ec2_public_key: ${{ secrets.EC2_PUBLIC_KEY }}
+        TF_VAR_ec2_public_key: ${{ secrets.EC2_PUBLIC_KEY }}
         run: |
-          terraform init
-          terraform destroy -auto-approve    
+        terraform init
+        terraform apply -auto-approve
+        
+     # - name: Terraform Destroy
+      #  working-directory: iac
+       # env:
+        #  TF_VAR_ec2_public_key: ${{ secrets.EC2_PUBLIC_KEY }}
+        #run: |
+         # terraform init
+          #terraform destroy -auto-approve    
